@@ -1,0 +1,8 @@
+node_modules/
+.local-node/
+.pnpm-store/
+.DS_Store
+shots/
+*.log
+.runtime/
+.shots/
