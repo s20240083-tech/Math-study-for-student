@@ -2,7 +2,7 @@
   "name": "summa",
   "private": true,
   "version": "1.0.0",
-  "description": "从数数到微积分的完整中文数学学习应用",
+  "description": "Summa — 由數數到微積分的完整數學學習路徑，附雙語產品網站。",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -22,5 +22,11 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "pnpm@11.28.5"
+  "packageManager": "pnpm@11.28.5",
+  "author": "3D 廖嘉兒",
+  "homepage": "https://s20240083-tech.github.io/Math-study-for-student/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s20240083-tech/Math-study-for-student.git"
+  }
 }

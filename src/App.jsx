@@ -5,6 +5,7 @@ import { LearnPage } from "./pages/Learn.jsx";
 import { LessonPage } from "./pages/Lesson.jsx";
 import { PracticePage } from "./pages/Practice.jsx";
 import { ProgressPage } from "./pages/Progress.jsx";
+import { MarketingPage } from "./pages/Marketing.jsx";
 import { getLessonById, TOTAL_LESSONS } from "./data/curriculum.js";
 import {
   completeLesson,
@@ -21,7 +22,7 @@ function parseHash() {
   return {
     raw,
     segments,
-    page: segments[0] || "today",
+    page: segments[0] || "home",
     params: new URLSearchParams(queryPart),
   };
 }
@@ -34,7 +35,7 @@ function useHashRoute() {
       setRoute(parseHash());
     }
     if (!window.location.hash) {
-      window.history.replaceState(null, "", "#/today");
+      window.history.replaceState(null, "", "#/home");
       setRoute(parseHash());
     }
     window.addEventListener("hashchange", onHashChange);
@@ -65,10 +66,29 @@ export default function App() {
   const { route, navigate } = useHashRoute();
   const [progress, setProgress] = useState(loadProgress);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [siteLang, setSiteLang] = useState(() => {
+    try {
+      const saved = window.localStorage.getItem("summa-site-lang");
+      if (saved === "zh" || saved === "en") return saved;
+    } catch {
+      // The site still works without storage.
+    }
+    return window.navigator.language?.toLowerCase().startsWith("zh")
+      ? "zh"
+      : "en";
+  });
 
   useEffect(() => {
     saveProgress(progress);
   }, [progress]);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem("summa-site-lang", siteLang);
+    } catch {
+      // Language still switches for the current visit.
+    }
+  }, [siteLang]);
 
   useEffect(() => {
     setSearchOpen(false);
@@ -88,13 +108,22 @@ export default function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     const page = route.page;
+    if (page === "home") {
+      document.documentElement.lang = siteLang === "zh" ? "zh-Hant" : "en";
+      document.title =
+        siteLang === "zh"
+          ? "Summa｜由數數到微積分的完整數學路徑"
+          : "Summa — A complete mathematics path";
+      return;
+    }
+    document.documentElement.lang = "zh-CN";
     let title = PAGE_TITLES[page] || "今日";
     if (page === "lesson") {
       const lesson = getLessonById(route.segments[1]);
       title = lesson ? lesson.title : "课时";
     }
     document.title = `${title} · Summa`;
-  }, [route.raw, route.page, route.segments]);
+  }, [route.raw, route.page, route.segments, siteLang]);
 
   const handleAnswer = useCallback((question, correct) => {
     setProgress((current) => recordAnswer(current, question, correct));
@@ -111,6 +140,16 @@ export default function App() {
 
   const page = route.page;
   const navPage = page === "lesson" ? "learn" : page;
+
+  if (page === "home") {
+    return (
+      <MarketingPage
+        lang={siteLang}
+        onLangChange={setSiteLang}
+        navigate={navigate}
+      />
+    );
+  }
 
   let content = null;
   if (page === "learn") {
@@ -184,7 +223,10 @@ export default function App() {
         </main>
         <footer className="global-footer">
           <span className="global-footer-brand">summa.</span>
-          <span>一条完整的学校数学路径，为理解而设计。</span>
+          <button className="global-footer-about" onClick={() => navigate("/home")}>
+            产品介绍
+          </button>
+          <span className="global-footer-author">3D 廖嘉兒</span>
           <span className="global-footer-meta">{TOTAL_LESSONS} 节课 · 6 个阶段 · 6–18 岁</span>
         </footer>
       </div>

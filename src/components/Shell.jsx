@@ -35,8 +35,8 @@ export function Sidebar({ page, progress, navigate }) {
     <aside className="sidebar">
       <button
         className="sidebar-brand"
-        onClick={() => navigate("/today")}
-        aria-label="Summa 首页"
+        onClick={() => navigate("/home")}
+        aria-label="Summa 产品介绍"
       >
         <Logo />
       </button>
@@ -99,8 +99,8 @@ export function Topbar({ page, progress, onSearch, navigate }) {
     <header className="topbar">
       <button
         className="mobile-brand"
-        onClick={() => navigate("/today")}
-        aria-label="Summa 首页"
+        onClick={() => navigate("/home")}
+        aria-label="Summa 产品介绍"
       >
         <Logo compact />
       </button>

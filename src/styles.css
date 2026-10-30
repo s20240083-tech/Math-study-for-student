@@ -5999,3 +5999,28 @@ html[lang="zh-CN"] .builder-intro h2 {
     width: 11px;
   }
 }
+
+.global-footer-about {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.global-footer-about:hover {
+  color: var(--coral-deep);
+}
+
+.global-footer-author {
+  color: var(--ink-muted);
+  font-size: 9px;
+}
+
+@media (max-width: 980px) {
+  .global-footer-about,
+  .global-footer-author {
+    display: none;
+  }
+}

@@ -1,14 +1,17 @@
 {
-  "name": "Summa 数学 — 从数数到微积分",
+  "name": "Summa 數學 — 從數數到微積分",
   "short_name": "Summa",
-  "description": "学习完整的学校数学路径，从最初的数字到微积分，配有引导式课程和练习。",
-  "start_url": "./",
+  "description": "完整的學校數學學習路徑：54 節引導課程、120 道練習題、六個階段，以及保存在本機的學習進度。",
+  "start_url": "./#/today",
   "scope": "./",
   "display": "standalone",
-  "lang": "zh-CN",
+  "lang": "zh-Hant",
   "background_color": "#f6f2e9",
   "theme_color": "#193c33",
-  "categories": ["education", "productivity"],
+  "categories": [
+    "education",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "./icon-192.png",
@@ -22,5 +25,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "id": "./"
 }
