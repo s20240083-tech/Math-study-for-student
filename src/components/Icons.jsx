@@ -253,7 +253,7 @@ export function Logo({ compact = false }) {
       <BrandMark size={compact ? 34 : 38} />
       <span className="logo-type">
         <span className="logo-word">summa<span className="logo-dot">.</span></span>
-        {!compact && <span className="logo-sub">从数数到微积分</span>}
+        {!compact && <span className="logo-sub">從數數到微積分</span>}
       </span>
     </span>
   );

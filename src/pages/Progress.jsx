@@ -42,19 +42,19 @@ export function ProgressPage({ progress, navigate, onReset }) {
         <div>
           <p className="eyebrow with-dot">
             <span className="live-dot" />
-            你的学习记录
+            你的學習記錄
           </p>
           <h1>
-            进度，<span className="display-italic">如实记录。</span>
+            進度，<span className="display-italic">如實記錄。</span>
           </h1>
           <p className="page-sub">
-            不制造打卡焦虑，也不和别人比较。只清楚呈现你会什么、遇见过什么、下一步去哪里。
+            不製造打卡焦慮，也不和別人比較。只清楚呈現你會什麼、遇見過什麼、下一步去哪裡。
           </p>
         </div>
         <div className="progress-date-card">
-          <span className="eyebrow">今日概览</span>
+          <span className="eyebrow">今日概覽</span>
           <strong>{formatLongDate()}</strong>
-          <span>今日获得 {today.xp} XP</span>
+          <span>今日獲得 {today.xp} XP</span>
         </div>
       </section>
 
@@ -63,9 +63,9 @@ export function ProgressPage({ progress, navigate, onReset }) {
           <span className="stat-icon"><Icon name="layers" size={19} /></span>
           <div className="stat-value">
             <strong>{stats.lessonsComplete}</strong>
-            <span>/ {TOTAL_LESSONS} 节</span>
+            <span>/ {TOTAL_LESSONS} 節</span>
           </div>
-          <span className="stat-label">已完成课程</span>
+          <span className="stat-label">已完成課程</span>
           <div className="stat-bar">
             <span style={{ width: `${stats.completion}%` }} />
           </div>
@@ -76,7 +76,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
             <strong>{stats.attempts ? `${stats.accuracy}%` : "—"}</strong>
           </div>
           <span className="stat-label">
-            正确率 · 共 {pluralize(stats.attempts, "道题")}
+            正確率 · 共 {pluralize(stats.attempts, "道題")}
           </span>
           <div className="stat-bar stat-bar-alt">
             <span style={{ width: `${stats.accuracy}%` }} />
@@ -88,9 +88,9 @@ export function ProgressPage({ progress, navigate, onReset }) {
             <strong>{activeStreak}</strong>
             <span>天</span>
           </div>
-          <span className="stat-label">当前连续学习</span>
+          <span className="stat-label">當前連續學習</span>
           <span className="stat-footnote">
-            {activeStreak > 0 ? "保持轻松而规律的节奏。" : "从一道题开始。"}
+            {activeStreak > 0 ? "保持輕鬆而規律的節奏。" : "從一道題開始。"}
           </span>
         </div>
         <div className="stat-card">
@@ -99,9 +99,9 @@ export function ProgressPage({ progress, navigate, onReset }) {
             <strong>{progress.xp}</strong>
             <span>XP</span>
           </div>
-          <span className="stat-label">累计经验</span>
+          <span className="stat-label">累計經驗</span>
           <span className="stat-footnote">
-            已探索 {activeStrands} / {strands.length} 个主题
+            已探索 {activeStrands} / {strands.length} 個主題
           </span>
         </div>
       </div>
@@ -110,10 +110,10 @@ export function ProgressPage({ progress, navigate, onReset }) {
         <section className="mastery-panel">
           <div className="section-heading compact">
             <div>
-              <span className="eyebrow">你的掌握情况</span>
-              <h2>各主题掌握度。</h2>
+              <span className="eyebrow">你的掌握情況</span>
+              <h2>各主題掌握度。</h2>
             </div>
-            <span className="section-note">基于你的每一次作答</span>
+            <span className="section-note">基於你的每一次作答</span>
           </div>
           <div className="mastery-list">
             {strands.map((strand) => (
@@ -126,7 +126,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
                 </span>
                 <span className="mastery-name">
                   <strong>{strand.label}</strong>
-                  <span>{pluralize(strand.lessons, "节课")}</span>
+                  <span>{pluralize(strand.lessons, "節課")}</span>
                 </span>
                 <span className="mastery-bar-wrap">
                   <span className="mastery-bar">
@@ -147,7 +147,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
           <div className="mastery-foot">
             <Icon name="lightbulb" size={16} />
             <span>
-              掌握度会随着作答变化。低分不是判决，而是邀请你再来一次。
+              掌握度會隨著作答變化。低分不是判決，而是邀請你再來一次。
             </span>
           </div>
         </section>
@@ -157,13 +157,13 @@ export function ProgressPage({ progress, navigate, onReset }) {
           <span className="eyebrow eyebrow-light">下一步</span>
           <h2>
             {stats.lessonsComplete === TOTAL_LESSONS
-              ? "你已走完整条路径。"
-              : "保持连续性。"}
+              ? "你已走完整條路徑。"
+              : "保持連續性。"}
           </h2>
           <p>
             {stats.lessonsComplete === TOTAL_LESSONS
-              ? "重温一个主题，或做一次更长的练习，让所有知识保持锋利。"
-              : "下一小步已经选好，你只需要打开它。"}
+              ? "重溫一個主題，或做一次更長的練習，讓所有知識保持鋒利。"
+              : "下一小步已經選好，你只需要打開它。"}
           </p>
           <div className="next-move-lesson">
             <span className="next-move-number">
@@ -178,19 +178,19 @@ export function ProgressPage({ progress, navigate, onReset }) {
             className="button button-coral button-full"
             onClick={() => navigate(`/lesson/${nextLesson.id}`)}
           >
-            {stats.lessonsComplete === TOTAL_LESSONS ? "复习一节课" : "打开下一课"}
+            {stats.lessonsComplete === TOTAL_LESSONS ? "複習一節課" : "打開下一課"}
             <Icon name="arrowRight" size={16} />
           </button>
           <div className="next-move-ring">
             <ProgressRing value={stats.completion} size={68} stroke={5}>
               <strong>{stats.completion}%</strong>
             </ProgressRing>
-            <span>完整路径已完成</span>
+            <span>完整路徑已完成</span>
           </div>
           <div className="next-move-path">
             <div className="next-move-path-head">
-              <span className="eyebrow eyebrow-light">完整路径</span>
-              <span>已完成 {stats.levelsComplete} / {CURRICULUM.length} 个阶段</span>
+              <span className="eyebrow eyebrow-light">完整路徑</span>
+              <span>已完成 {stats.levelsComplete} / {CURRICULUM.length} 個階段</span>
             </div>
             <div className="path-markers">
               {levelProgresses.map(({ level, progress: levelProgress }) => {
@@ -220,31 +220,31 @@ export function ProgressPage({ progress, navigate, onReset }) {
       <section className="activity-panel">
         <div className="activity-head">
           <div>
-            <span className="eyebrow">学习节奏</span>
-            <h2>每一天，一个小方块。</h2>
+            <span className="eyebrow">學習節奏</span>
+            <h2>每一天，一個小方塊。</h2>
           </div>
           <div className="activity-summary">
             <div>
               <strong>{weekXp}</strong>
-              <span>本周 XP</span>
+              <span>本週 XP</span>
             </div>
             <div>
               <strong>{weekQuestions}</strong>
-              <span>本周答题</span>
+              <span>本週答題</span>
             </div>
           </div>
         </div>
 
         <div className="activity-body">
           <div className="heatmap-wrap">
-            <div className="heatmap" aria-label="最近十二周的学习活动">
+            <div className="heatmap" aria-label="最近十二週的學習活動">
               {heatmap.map((weekColumn, weekIndex) => (
                 <div className="heatmap-week" key={weekIndex}>
                   {weekColumn.map((day) => (
                     <span
                       key={day.key}
                       className={`heatmap-cell level-${day.level}`}
-                      title={`${new Intl.DateTimeFormat("zh-CN", {
+                      title={`${new Intl.DateTimeFormat("zh-Hant", {
                         month: "short",
                         day: "numeric",
                       }).format(day.date)}: ${day.xp} XP`}
@@ -283,21 +283,21 @@ export function ProgressPage({ progress, navigate, onReset }) {
           <div className="section-heading compact">
             <div>
               <span className="eyebrow">最近完成</span>
-              <h2>已经走过的课程。</h2>
+              <h2>已經走過的課程。</h2>
             </div>
-            <span className="section-note">共 {stats.lessonsComplete} 节</span>
+            <span className="section-note">共 {stats.lessonsComplete} 節</span>
           </div>
           {recent.length === 0 ? (
             <div className="recent-empty">
               <span className="empty-mark">∅</span>
               <div>
-                <h3>还没有完成的课程。</h3>
-                <p>完成一节课后，它会带着主题和日期出现在这里。</p>
+                <h3>還沒有完成的課程。</h3>
+                <p>完成一節課後，它會帶著主題和日期出現在這裡。</p>
                 <button
                   className="button button-dark button-small"
                   onClick={() => navigate(`/lesson/${nextLesson.id}`)}
                 >
-                  从《{nextLesson.title}》开始
+                  從《{nextLesson.title}》開始
                 </button>
               </div>
             </div>
@@ -305,7 +305,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
             <div className="recent-list">
               {recent.map((lesson) => {
                 const completedDate = progress.completedAt[lesson.id]
-                  ? new Intl.DateTimeFormat("zh-CN", {
+                  ? new Intl.DateTimeFormat("zh-Hant", {
                       month: "short",
                       day: "numeric",
                     }).format(new Date(progress.completedAt[lesson.id]))
@@ -334,7 +334,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
           <div className="section-heading compact">
             <div>
               <span className="eyebrow">里程碑</span>
-              <h2>一小步，也值得记下。</h2>
+              <h2>一小步，也值得記下。</h2>
             </div>
             <span className="section-note">
               {badges.filter((badge) => badge.unlocked).length}/{badges.length}
@@ -367,12 +367,12 @@ export function ProgressPage({ progress, navigate, onReset }) {
 
       <footer className="progress-footer">
         <div>
-          <strong>所有数据都保存在这台设备上。</strong>
-          <p>没有账号，没有云端，也没有别人能看到你的学习记录。</p>
+          <strong>所有數據都保存在這臺設備上。</strong>
+          <p>沒有賬號，沒有云端，也沒有別人能看到你的學習記錄。</p>
         </div>
         {confirmReset ? (
           <div className="reset-confirm">
-            <span>清除所有课程、答题和 XP？</span>
+            <span>清除所有課程、答題和 XP？</span>
             <button
               className="button button-danger button-small"
               onClick={() => {
@@ -380,7 +380,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
                 setConfirmReset(false);
               }}
             >
-              确认重置
+              確認重置
             </button>
             <button className="text-link" onClick={() => setConfirmReset(false)}>
               取消
@@ -389,7 +389,7 @@ export function ProgressPage({ progress, navigate, onReset }) {
         ) : (
           <button className="text-link reset-link" onClick={() => setConfirmReset(true)}>
             <Icon name="reset" size={15} />
-            重置进度
+            重置進度
           </button>
         )}
       </footer>

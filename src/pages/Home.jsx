@@ -40,11 +40,11 @@ export function HomePage({ progress, navigate }) {
             {formatLongDate()}
           </p>
           <h1>
-            {greeting}。<span className="display-italic">一次一个概念。</span>
+            {greeting}。<span className="display-italic">一次一個概念。</span>
           </h1>
           <p className="page-sub">
-            一条完整的数学学习路径，从最初的数字到最终的考试。
-            从你停下的地方继续。
+            一條完整的數學學習路徑，從最初的數字到最終的考試。
+            從你停下的地方繼續。
           </p>
         </div>
         <button
@@ -52,7 +52,7 @@ export function HomePage({ progress, navigate }) {
           onClick={() => navigate("/practice")}
         >
           <Icon name="practice" size={17} />
-          快速练习
+          快速練習
         </button>
       </section>
 
@@ -61,7 +61,7 @@ export function HomePage({ progress, navigate }) {
           <div className="continue-copy">
             <div className="continue-kicker">
               <span className="eyebrow eyebrow-light">
-                {isNextComplete ? "值得重温的一课" : "继续上次的学习"}
+                {isNextComplete ? "值得重溫的一課" : "繼續上次的學習"}
               </span>
               <span className="continue-level">
                 {level.title} <span>·</span> {level.grades}
@@ -74,11 +74,11 @@ export function HomePage({ progress, navigate }) {
                 <Icon name="layers" size={15} /> {nextLesson.strandLabel}
               </span>
               <span>
-                <Icon name="clock" size={15} /> {nextLesson.minutes} 分钟
+                <Icon name="clock" size={15} /> {nextLesson.minutes} 分鐘
               </span>
               <span>
                 <Icon name="check" size={15} /> 已完成 {levelProgress.completed} /{" "}
-                {levelProgress.total} 节
+                {levelProgress.total} 節
               </span>
             </div>
             <div className="continue-actions">
@@ -86,19 +86,19 @@ export function HomePage({ progress, navigate }) {
                 className="button button-coral"
                 onClick={() => navigate(`/lesson/${nextLesson.id}`)}
               >
-                {isNextComplete ? "复习这一课" : "继续学习"}
+                {isNextComplete ? "複習這一課" : "繼續學習"}
                 <Icon name="arrowRight" size={17} />
               </button>
               <button
                 className="button button-ghost-light"
                 onClick={() => navigate(`/practice/lesson/${nextLesson.id}`)}
               >
-                20 道练习
+                20 道練習
               </button>
             </div>
             <div className="continue-progress">
               <div className="continue-progress-label">
-                <span>{level.title} · 进度</span>
+                <span>{level.title} · 進度</span>
                 <span>{levelProgress.percent}%</span>
               </div>
               <div className="progress-track progress-track-light">
@@ -159,32 +159,32 @@ export function HomePage({ progress, navigate }) {
         <aside className="daily-card">
           <div className="card-heading-row">
             <div>
-              <span className="eyebrow">今日节奏</span>
-              <h3>给数学一点时间。</h3>
+              <span className="eyebrow">今日節奏</span>
+              <h3>給數學一點時間。</h3>
             </div>
             <ProgressRing value={dailyPercent} size={76} stroke={6}>
               <strong>{dailyPercent}%</strong>
-              <span>目标</span>
+              <span>目標</span>
             </ProgressRing>
           </div>
 
           <div className="daily-stats">
             <div>
               <strong>{today.xp}</strong>
-              <span>目标 {DAILY_GOAL} XP</span>
+              <span>目標 {DAILY_GOAL} XP</span>
             </div>
             <div>
               <strong>{today.questions}</strong>
-              <span>道题</span>
+              <span>道題</span>
             </div>
             <div>
               <strong>{today.lessons}</strong>
-              <span>节课</span>
+              <span>節課</span>
             </div>
           </div>
 
           {hasWeekActivity ? (
-            <div className="week-chart" aria-label="本周学习活动">
+            <div className="week-chart" aria-label="本週學習活動">
               {week.map((day) => (
                 <div className="week-day" key={day.key}>
                   <div className="week-bar-track">
@@ -208,8 +208,8 @@ export function HomePage({ progress, navigate }) {
                 <Icon name="spark" size={16} />
               </span>
               <div>
-                <strong>本周还没有练习。</strong>
-                <span>一次短短的练习，就能开始留下痕迹。</span>
+                <strong>本週還沒有練習。</strong>
+                <span>一次短短的練習，就能開始留下痕跡。</span>
               </div>
             </div>
           )}
@@ -217,17 +217,17 @@ export function HomePage({ progress, navigate }) {
           <div className="streak-strip">
             <span className="streak-flame"><Icon name="flame" size={19} /></span>
             <div>
-              <strong>连续学习 {activeStreak} 天</strong>
+              <strong>連續學習 {activeStreak} 天</strong>
               <span>
                 {activeStreak > 0
                   ? "今天也保持下去。"
-                  : "答一道题就开始。"}
+                  : "答一道題就開始。"}
               </span>
             </div>
             <button
               className="text-link"
               onClick={() => navigate("/practice")}
-              aria-label="开始一次练习"
+              aria-label="開始一次練習"
             >
               <Icon name="arrowRight" size={17} />
             </button>
@@ -239,10 +239,10 @@ export function HomePage({ progress, navigate }) {
         <div className="section-heading">
           <div>
             <span className="eyebrow">完整旅程</span>
-            <h2>你的路径：从数数到微积分。</h2>
+            <h2>你的路徑：從數數到微積分。</h2>
           </div>
           <button className="text-link with-arrow" onClick={() => navigate("/learn")}>
-            浏览全部课程
+            瀏覽全部課程
             <Icon name="arrowRight" size={16} />
           </button>
         </div>
@@ -267,11 +267,11 @@ export function HomePage({ progress, navigate }) {
                   </span>
                   <span className="level-stage">{item.grades}</span>
                   {complete ? (
-                    <span className="level-done" title="阶段已完成">
+                    <span className="level-done" title="階段已完成">
                       <Icon name="check" size={15} />
                     </span>
                   ) : current ? (
-                    <span className="level-now">下一阶段</span>
+                    <span className="level-now">下一階段</span>
                   ) : null}
                 </div>
                 <div className="level-card-body">
@@ -283,7 +283,7 @@ export function HomePage({ progress, navigate }) {
                     <span style={{ width: `${itemProgress.percent}%` }} />
                   </div>
                   <span>
-                    {itemProgress.completed}/{itemProgress.total} 节课
+                    {itemProgress.completed}/{itemProgress.total} 節課
                   </span>
                 </div>
               </button>
@@ -296,10 +296,10 @@ export function HomePage({ progress, navigate }) {
         <section className="strand-panel">
           <div className="section-heading compact">
             <div>
-              <span className="eyebrow">跟随好奇心</span>
-              <h2>按主题浏览。</h2>
+              <span className="eyebrow">跟隨好奇心</span>
+              <h2>按主題瀏覽。</h2>
             </div>
-            <span className="section-note">{stats.completion}% 的路径已完成</span>
+            <span className="section-note">{stats.completion}% 的路徑已完成</span>
           </div>
           <div className="strand-grid">
             {["Number", "Algebra", "Geometry", "Data", "Functions", "Calculus"].map(
@@ -322,7 +322,7 @@ export function HomePage({ progress, navigate }) {
                     </span>
                     <span className="strand-card-copy">
                       <strong>{strand.label}</strong>
-                      <span>{count} 节课</span>
+                      <span>{count} 節課</span>
                     </span>
                     <Icon name="arrowUpRight" size={15} />
                   </button>
@@ -335,19 +335,19 @@ export function HomePage({ progress, navigate }) {
         <aside className="note-card">
           <span className="note-mark">“</span>
           <p className="note-quote">
-            数学不是关于数字、方程、计算或算法的：
-            它是关于<em>理解</em>的。
+            數學不是關於數字、方程、計算或算法的：
+            它是關於<em>理解</em>的。
           </p>
           <div className="note-rule" />
           <p className="note-caption">
-            不设年级，不必赶路。{TOTAL_LESSONS} 节课，一步一步来。
+            不設年級，不必趕路。{TOTAL_LESSONS} 節課，一步一步來。
           </p>
-          <cite className="note-cite">威廉·保罗·瑟斯顿</cite>
+          <cite className="note-cite">威廉·保羅·瑟斯頓</cite>
           <button
             className="button button-dark note-button"
             onClick={() => navigate(`/lesson/${nextLesson.id}`)}
           >
-            打开今天的课
+            打開今天的課
             <Icon name="arrowRight" size={16} />
           </button>
         </aside>

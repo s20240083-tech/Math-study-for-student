@@ -9,7 +9,7 @@ page.on("console", (msg) => {
   if (msg.type() === "error") errors.push(`console: ${msg.text()}`);
 });
 page.on("pageerror", (err) => errors.push(`pageerror: ${err.message}`));
-const base = "http://127.0.0.1:4174";
+const base = process.env.BASE_URL || "http://127.0.0.1:4174";
 
 async function state() {
   return page.evaluate(() => JSON.parse(localStorage.getItem("summa-progress-v1") || "{}"));
@@ -17,17 +17,17 @@ async function state() {
 
 // 1. Home -> lesson -> answer -> complete
 await page.goto(`${base}/#/today`, { waitUntil: "networkidle" });
-await page.getByRole("button", { name: /继续学习/ }).click();
+await page.getByRole("button", { name: /繼續學習/ }).click();
 await page.waitForURL(/lesson\/l1-counting/);
 console.log("lesson title:", await page.locator(".lesson-header h1").innerText());
-await page.getByRole("button", { name: /5 个十/ }).click();
-await page.getByRole("button", { name: "检查答案" }).first().click();
-await page.getByText("完全正确。").waitFor();
+await page.getByRole("button", { name: /5 個十/ }).click();
+await page.getByRole("button", { name: "檢查答案" }).first().click();
+await page.getByText("完全正確。").waitFor();
 console.log("feedback shown");
 await page.screenshot({ path: "shots/flow-checkpoint.png" });
 let s = await state();
 console.log("answer stats:", JSON.stringify(s.questionStats["l1-counting-q1"]));
-await page.getByRole("button", { name: "标记完成" }).click();
+await page.getByRole("button", { name: "標記完成" }).click();
 await page.getByRole("button", { name: "已完成" }).waitFor();
 s = await state();
 console.log("completed:", JSON.stringify(s.completedLessons), "xp:", s.xp, "streak:", s.streak);
@@ -35,8 +35,8 @@ await page.screenshot({ path: "shots/flow-completed.png" });
 
 // 2. Practice session (20 unique questions)
 await page.goto(`${base}/#/practice`, { waitUntil: "networkidle" });
-await page.getByRole("button", { name: /开始练习/ }).click();
-await page.getByText(/第 1 题/).waitFor();
+await page.getByRole("button", { name: /開始練習/ }).click();
+await page.getByText(/第 1 題/).waitFor();
 const questionDots = await page.locator(".session-dot").count();
 console.log("session length:", questionDots);
 for (let i = 0; i < 20; i += 1) {
@@ -46,12 +46,12 @@ for (let i = 0; i < 20; i += 1) {
   } else {
     await page.locator(".session-options .option").first().click();
   }
-  await page.getByRole("button", { name: "检查答案" }).click();
+  await page.getByRole("button", { name: "檢查答案" }).click();
   await page.locator(".session-feedback").waitFor();
-  const next = page.getByRole("button", { name: /下一题|查看结果/ });
+  const next = page.getByRole("button", { name: /下一題|查看結果/ });
   await next.click();
 }
-await page.getByText("练习完成").waitFor();
+await page.getByText("練習完成").waitFor();
 console.log("results heading:", await page.locator(".results-copy h1").innerText());
 await page.screenshot({ path: "shots/flow-results.png" });
 s = await state();
@@ -59,7 +59,7 @@ console.log("total attempts:", Object.values(s.questionStats).reduce((n, q) => n
 
 // 3. Search
 await page.keyboard.press("Meta+k");
-await page.getByPlaceholder("搜索知识点、技能或年级…").fill("二次方程");
+await page.getByPlaceholder("搜尋知識點、技能或年級…").fill("二次方程");
 await page.waitForTimeout(250);
 await page.getByRole("button", { name: /二次方程/ }).first().click();
 await page.waitForURL(/lesson\/l5-quadratics/);
@@ -72,7 +72,7 @@ await page.getByRole("tab", { name: /高中/ }).click();
 await page.waitForURL(/learn\/algebra-connections/);
 await page.waitForTimeout(300);
 console.log("secondary level:", await page.locator(".level-panel-title h2").innerText());
-await page.getByRole("button", { name: /进阶数学/ }).click();
+await page.getByRole("button", { name: /進階數學/ }).click();
 await page.waitForURL(/learn\/advanced-mathematics/);
 await page.waitForTimeout(300);
 console.log("advanced level:", await page.locator(".level-panel-title h2").innerText());
@@ -91,7 +91,7 @@ const dims = await mp.evaluate(() => ({
 console.log("mobile session dims:", dims);
 console.log("mobile prompt:", await mp.locator(".session-prompt").innerText());
 await mp.screenshot({ path: "shots/flow-mobile-session.png" });
-await mp.getByRole("button", { name: "进度", exact: true }).click();
+await mp.getByRole("button", { name: "進度", exact: true }).click();
 await mp.waitForURL(/progress/);
 console.log("mobile nav progress ok");
 await mp.screenshot({ path: "shots/flow-mobile-progress.png" });

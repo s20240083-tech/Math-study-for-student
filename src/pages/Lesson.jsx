@@ -38,10 +38,10 @@ function CheckpointQuestion({
     <div className={`checkpoint-card ${checked ? (correct ? "is-correct" : "is-wrong") : ""}`}>
       <div className="checkpoint-top">
         <span className="checkpoint-index">
-          检查点 {number} <span>/ {total}</span>
+          檢查點 {number} <span>/ {total}</span>
         </span>
         <span className="checkpoint-type">
-          {question.type === "choice" ? "单选" : "简答"}
+          {question.type === "choice" ? "單選" : "簡答"}
         </span>
       </div>
       <h3 className="checkpoint-prompt">{question.prompt}</h3>
@@ -81,7 +81,7 @@ function CheckpointQuestion({
             onKeyDown={(event) => {
               if (event.key === "Enter" && !checked) handleSubmit();
             }}
-            placeholder={question.placeholder || "输入答案"}
+            placeholder={question.placeholder || "輸入答案"}
             aria-label={question.prompt}
             disabled={checked}
             autoComplete="off"
@@ -100,14 +100,14 @@ function CheckpointQuestion({
             aria-expanded={showHint}
           >
             <Icon name="lightbulb" size={16} />
-            {showHint ? "收起提示" : "需要提示吗？"}
+            {showHint ? "收起提示" : "需要提示嗎？"}
           </button>
           <button
             className="button button-dark button-small"
             onClick={handleSubmit}
             disabled={value === "" || value === null || value === undefined}
           >
-            检查答案
+            檢查答案
             <Icon name="arrowRight" size={15} />
           </button>
         </div>
@@ -126,17 +126,17 @@ function CheckpointQuestion({
             <span className="feedback-icon">
               <Icon name={correct ? "check" : "lightbulb"} size={16} />
             </span>
-            <strong>{correct ? "完全正确。" : "再想想。"}</strong>
+            <strong>{correct ? "完全正確。" : "再想想。"}</strong>
           </div>
           <p>{question.explanation}</p>
           {!correct && (
             <>
               <p className="feedback-answer">
-                正确答案：<strong>{correctAnswerLabel}</strong>
+                正確答案：<strong>{correctAnswerLabel}</strong>
               </p>
               <button className="feedback-retry" onClick={onRetry}>
                 <Icon name="reset" size={15} />
-                再试一次
+                再試一次
               </button>
             </>
           )}
@@ -169,9 +169,9 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
       <div className="page">
         <div className="empty-state">
           <span className="empty-mark">?</span>
-          <h2>找不到这节课。</h2>
+          <h2>找不到這節課。</h2>
           <button className="button button-dark" onClick={() => navigate("/learn")}>
-            返回课程地图
+            返回課程地圖
           </button>
         </div>
       </div>
@@ -218,7 +218,7 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
         <div className="lesson-header-main">
           <div className="lesson-badges">
             <span className="badge badge-solid">
-              第 {String(lesson.levelIndex + 1).padStart(2, "0")} 阶段
+              第 {String(lesson.levelIndex + 1).padStart(2, "0")} 階段
             </span>
             <span className="badge">{lesson.grades}</span>
             <span className="badge">
@@ -238,10 +238,10 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
           <p className="lesson-lede">{lesson.summary}</p>
           <div className="lesson-meta-row">
             <span>
-              <Icon name="clock" size={16} /> {lesson.minutes} 分钟阅读
+              <Icon name="clock" size={16} /> {lesson.minutes} 分鐘閱讀
             </span>
             <span>
-              <Icon name="target" size={16} /> {questions.length} 个检查点
+              <Icon name="target" size={16} /> {questions.length} 個檢查點
             </span>
             <span>
               <Icon name="layers" size={16} /> {lesson.levelTitle}
@@ -283,9 +283,9 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
             <div className="worked-head">
               <span className="worked-label">
                 <span className="worked-number">01</span>
-                例题
+                例題
               </span>
-              <span className="worked-caption">跟着推理走，不只记答案。</span>
+              <span className="worked-caption">跟著推理走，不只記答案。</span>
             </div>
             <h3>{lesson.example.prompt}</h3>
             <ol className="worked-steps">
@@ -305,15 +305,15 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
           <section className="checkpoint-section" id="checkpoint">
             <div className="section-heading compact">
               <div>
-                <span className="eyebrow">检验理解</span>
-                <h2>{questions.length} 道快速检查。</h2>
+                <span className="eyebrow">檢驗理解</span>
+                <h2>{questions.length} 道快速檢查。</h2>
               </div>
               <span className="section-note">
-                已检查 {answeredCount}/{questions.length} · 答对 {correctCount}
+                已檢查 {answeredCount}/{questions.length} · 答對 {correctCount}
               </span>
             </div>
             <p className="checkpoint-intro">
-              先凭记忆作答。如果卡住了，打开提示，再仔细读一遍解析。
+              先憑記憶作答。如果卡住了，打開提示，再仔細讀一遍解析。
             </p>
 
             <div className="checkpoint-list">
@@ -343,16 +343,16 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
               <Icon name={complete ? "check" : "spark"} size={22} />
             </span>
             <div className="finish-copy">
-              <span className="eyebrow">{complete ? "本课已完成" : "最后一步"}</span>
+              <span className="eyebrow">{complete ? "本課已完成" : "最後一步"}</span>
               <h3>
                 {complete
-                  ? "这个知识点已经记下了。需要时随时回来。"
-                  : "你能把这个概念清楚地讲给别人听吗？"}
+                  ? "這個知識點已經記下了。需要時隨時回來。"
+                  : "你能把這個概念清楚地講給別人聽嗎？"}
               </h3>
               <p>
                 {complete
-                  ? "过几天再练一次——间隔复习才能让知识留下来。"
-                  : "当你能把核心概念讲给别人听时，就把这一课标记为完成。"}
+                  ? "過幾天再練一次——間隔複習才能讓知識留下來。"
+                  : "當你能把核心概念講給別人聽時，就把這一課標記為完成。"}
               </p>
             </div>
             <div className="finish-actions">
@@ -362,31 +362,31 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
                 disabled={complete}
               >
                 <Icon name="check" size={17} />
-                {complete ? "已完成" : "标记完成"}
+                {complete ? "已完成" : "標記完成"}
               </button>
               <button
                 className="button button-quiet"
                 onClick={() => navigate(`/practice/lesson/${lesson.id}`)}
               >
-                做 20 道题
+                做 20 道題
                 <Icon name="arrowRight" size={16} />
               </button>
             </div>
             {justCompleted && (
               <p className="finish-toast" aria-live="polite">
-                已保存，学习进度已更新。
+                已保存，學習進度已更新。
               </p>
             )}
           </section>
 
-          <nav className="lesson-pager" aria-label="课时导航">
+          <nav className="lesson-pager" aria-label="課時導航">
             {previous ? (
               <button
                 className="pager-link pager-prev"
                 onClick={() => navigate(`/lesson/${previous.id}`)}
               >
                 <span className="pager-direction">
-                  <Icon name="arrowLeft" size={15} /> 上一课
+                  <Icon name="arrowLeft" size={15} /> 上一課
                 </span>
                 <strong>{previous.title}</strong>
               </button>
@@ -399,16 +399,16 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
                 onClick={() => navigate(`/lesson/${next.id}`)}
               >
                 <span className="pager-direction">
-                  下一课 <Icon name="arrowRight" size={15} />
+                  下一課 <Icon name="arrowRight" size={15} />
                 </span>
                 <strong>{next.title}</strong>
               </button>
             ) : (
               <button className="pager-link pager-next" onClick={() => navigate("/progress")}>
                 <span className="pager-direction">
-                  路径到这里结束 <Icon name="arrowRight" size={15} />
+                  路徑到這裡結束 <Icon name="arrowRight" size={15} />
                 </span>
-                <strong>查看学习进度</strong>
+                <strong>查看學習進度</strong>
               </button>
             )}
           </nav>
@@ -418,7 +418,7 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
           <div className="rail-inner">
             <div className="rail-card">
               <div className="rail-head">
-                <span className="eyebrow">本课要点</span>
+                <span className="eyebrow">本課要點</span>
                 <span className="rail-mastery">
                   {mastery > 0 ? `掌握度 ${mastery}%` : "新概念"}
                 </span>
@@ -445,7 +445,7 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
                 <div>
                   <strong>{lesson.levelTitle}</strong>
                   <span>
-                    {lesson.grades} · 第 {String(lesson.lessonIndex + 1).padStart(2, "0")} / {levelLessonCount} 课
+                    {lesson.grades} · 第 {String(lesson.lessonIndex + 1).padStart(2, "0")} / {levelLessonCount} 課
                   </span>
                 </div>
               </div>
@@ -454,14 +454,14 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
                 onClick={() => navigate(`/practice/lesson/${lesson.id}`)}
               >
                 <Icon name="practice" size={16} />
-                做 20 道题
+                做 20 道題
               </button>
             </div>
 
             <div className="rail-tip">
               <Icon name="lightbulb" size={18} />
               <p>
-                <strong>学习建议。</strong>合上课程，用一句话把核心概念大声讲出来。如果卡住了，就重读那一部分。
+                <strong>學習建議。</strong>合上課程，用一句話把核心概念大聲講出來。如果卡住了，就重讀那一部分。
               </p>
             </div>
 
@@ -470,10 +470,10 @@ export function LessonPage({ progress, lessonId, navigate, onAnswer, onComplete 
                 className="rail-next"
                 onClick={() => navigate(`/lesson/${next.id}`)}
               >
-                <span className="eyebrow">下一课</span>
+                <span className="eyebrow">下一課</span>
                 <strong>{next.title}</strong>
                 <span className="rail-next-meta">
-                  {next.strandLabel} · {next.minutes} 分钟
+                  {next.strandLabel} · {next.minutes} 分鐘
                 </span>
                 <span className="rail-next-arrow">
                   <Icon name="arrowRight" size={17} />

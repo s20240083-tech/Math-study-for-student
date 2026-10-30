@@ -1,5 +1,5 @@
 /* Summa service worker — offline support for the static learning app. */
-const CACHE = "summa-shell-v4";
+const CACHE = "summa-shell-v5";
 const CORE = [
   "./",
   "./index.html",

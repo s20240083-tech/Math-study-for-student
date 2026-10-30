@@ -274,7 +274,7 @@ export function getRecentCompletions(progress, limit = 4) {
 }
 
 export function getWeek(progress) {
-  const formatter = new Intl.DateTimeFormat("zh-CN", { weekday: "short" });
+  const formatter = new Intl.DateTimeFormat("zh-Hant", { weekday: "short" });
   return Array.from({ length: 7 }, (_, index) => {
     const date = new Date();
     date.setDate(date.getDate() - (6 - index));
@@ -283,7 +283,7 @@ export function getWeek(progress) {
     return {
       key,
       label: formatter.format(date).slice(0, 2),
-      fullLabel: new Intl.DateTimeFormat("zh-CN", {
+      fullLabel: new Intl.DateTimeFormat("zh-Hant", {
         weekday: "long",
         month: "short",
         day: "numeric",
@@ -329,18 +329,18 @@ export function getBadges(progress) {
   return [
     {
       id: "first-step",
-      title: "迈出第一步",
-      description: "完成第一节课程。",
+      title: "邁出第一步",
+      description: "完成第一節課程。",
       icon: "spark",
       unlocked: stats.lessonsComplete >= 1,
       progress: Math.min(1, stats.lessonsComplete),
       target: 1,
-      unit: "课时",
+      unit: "課時",
     },
     {
       id: "streak-3",
-      title: "连续三天",
-      description: "连续学习三天。",
+      title: "連續三天",
+      description: "連續學習三天。",
       icon: "flame",
       unlocked: activeStreak >= 3,
       progress: Math.min(3, activeStreak),
@@ -349,43 +349,43 @@ export function getBadges(progress) {
     },
     {
       id: "ten-lessons",
-      title: "渐入佳境",
-      description: "完成十节课程。",
+      title: "漸入佳境",
+      description: "完成十節課程。",
       icon: "layers",
       unlocked: stats.lessonsComplete >= 10,
       progress: Math.min(10, stats.lessonsComplete),
       target: 10,
-      unit: "课时",
+      unit: "課時",
     },
     {
       id: "accurate",
       title: "思路清晰",
-      description: "答题 20 道，正确率达到 80%。",
+      description: "答題 20 道，正確率達到 80%。",
       icon: "target",
       unlocked: stats.attempts >= 20 && stats.accuracy >= 80,
       progress: Math.min(20, stats.attempts),
       target: 20,
-      unit: "道题",
+      unit: "道題",
     },
     {
       id: "all-levels",
-      title: "广阔视野",
-      description: "在每个阶段都完成一节课。",
+      title: "廣闊視野",
+      description: "在每個階段都完成一節課。",
       icon: "compass",
       unlocked: startedLevels.size >= LEVELS.length,
       progress: startedLevels.size,
       target: LEVELS.length,
-      unit: "个阶段",
+      unit: "個階段",
     },
     {
       id: "whole-path",
       title: "完整旅程",
-      description: "完成全部 54 节课程。",
+      description: "完成全部 54 節課程。",
       icon: "trophy",
       unlocked: stats.lessonsComplete >= TOTAL_LESSONS,
       progress: stats.lessonsComplete,
       target: TOTAL_LESSONS,
-      unit: "课时",
+      unit: "課時",
     },
   ];
 }

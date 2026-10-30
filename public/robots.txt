@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://s20240083-tech.github.io/Math-study-for-student/sitemap.xml
