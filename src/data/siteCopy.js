@@ -205,12 +205,12 @@ export const SITE_COPY = {
       text: "免費、毋須註冊。從你最需要的那一課開始，或先看看完整的課程地圖。",
       primary: "免費開始學習",
       secondary: "查看 GitHub",
-      note: "課程介面：簡體中文 · 這個網站：繁體中文 / English",
+      note: "課程介面：繁體中文 · 這個網站：繁體中文 / English",
     },
     footer: {
       tagline: "一條完整的學校數學路徑，為理解而設計。",
       madeBy: "由 3D 廖嘉兒設計及開發",
-      appLanguage: "互動課程目前以簡體中文呈現；網站提供繁體中文與英文。",
+      appLanguage: "互動課程以繁體中文呈現；網站提供繁體中文與英文。",
       sections: "課程",
       rights: "© 2026 Summa · 3D 廖嘉兒",
       links: {
@@ -425,12 +425,12 @@ export const SITE_COPY = {
       text: "Free and sign-up free. Start with the lesson you need, or explore the full curriculum first.",
       primary: "Start learning free",
       secondary: "View GitHub",
-      note: "Course interface: Simplified Chinese · This site: Traditional Chinese / English",
+      note: "Course interface: Traditional Chinese · This site: Traditional Chinese / English",
     },
     footer: {
       tagline: "A complete school mathematics path, designed for understanding.",
       madeBy: "Designed and built by 3D 廖嘉兒",
-      appLanguage: "The interactive course is currently presented in Simplified Chinese; this site is available in Traditional Chinese and English.",
+      appLanguage: "The interactive course is presented in Traditional Chinese; this site is available in Traditional Chinese and English.",
       sections: "Curriculum",
       rights: "© 2026 Summa · 3D 廖嘉兒",
       links: {

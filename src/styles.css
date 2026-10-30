@@ -5797,7 +5797,7 @@ kbd {
    Chinese typography
    ========================================================= */
 
-html[lang="zh-CN"] {
+html[lang="zh-Hant"] {
   --font-body: "DM Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
     "Noto Sans CJK SC", sans-serif;
   --font-display: "Fraunces", "Songti SC", "STSong", "Noto Serif CJK SC",
@@ -5805,75 +5805,75 @@ html[lang="zh-CN"] {
   --font-math: "Fraunces", "Songti SC", "STSong", "Times New Roman", serif;
 }
 
-html[lang="zh-CN"] body {
+html[lang="zh-Hant"] body {
   line-height: 1.68;
 }
 
-html[lang="zh-CN"] .home-heading h1,
-html[lang="zh-CN"] .learn-heading h1,
-html[lang="zh-CN"] .practice-heading h1,
-html[lang="zh-CN"] .progress-heading h1,
-html[lang="zh-CN"] .lesson-header h1 {
+html[lang="zh-Hant"] .home-heading h1,
+html[lang="zh-Hant"] .learn-heading h1,
+html[lang="zh-Hant"] .practice-heading h1,
+html[lang="zh-Hant"] .progress-heading h1,
+html[lang="zh-Hant"] .lesson-header h1 {
   line-height: 1.16;
   letter-spacing: 0.01em;
   font-weight: 500;
 }
 
-html[lang="zh-CN"] .continue-card h2 {
+html[lang="zh-Hant"] .continue-card h2 {
   line-height: 1.24;
   letter-spacing: 0.01em;
   font-weight: 500;
 }
 
-html[lang="zh-CN"] .display-italic {
+html[lang="zh-Hant"] .display-italic {
   font-style: normal;
   color: var(--coral-deep);
 }
 
-html[lang="zh-CN"] .page-sub,
-html[lang="zh-CN"] .continue-summary,
-html[lang="zh-CN"] .lesson-lede {
+html[lang="zh-Hant"] .page-sub,
+html[lang="zh-Hant"] .continue-summary,
+html[lang="zh-Hant"] .lesson-lede {
   line-height: 1.78;
 }
 
-html[lang="zh-CN"] .lesson-body p {
+html[lang="zh-Hant"] .lesson-body p {
   font-size: 16.5px;
   line-height: 1.9;
 }
 
-html[lang="zh-CN"] .lesson-drop::first-letter {
+html[lang="zh-Hant"] .lesson-drop::first-letter {
   margin-top: 5px;
   margin-right: 10px;
   font-size: 54px;
   line-height: 0.8;
 }
 
-html[lang="zh-CN"] .logo-sub {
+html[lang="zh-Hant"] .logo-sub {
   letter-spacing: 0.11em;
 }
 
-html[lang="zh-CN"] .level-card h3,
-html[lang="zh-CN"] .level-panel-title h2,
-html[lang="zh-CN"] .next-move-card h2,
-html[lang="zh-CN"] .results-copy h1 {
+html[lang="zh-Hant"] .level-card h3,
+html[lang="zh-Hant"] .level-panel-title h2,
+html[lang="zh-Hant"] .next-move-card h2,
+html[lang="zh-Hant"] .results-copy h1 {
   line-height: 1.22;
   letter-spacing: 0.005em;
 }
 
-html[lang="zh-CN"] .search-dialog-footer,
-html[lang="zh-CN"] .search-section-head,
-html[lang="zh-CN"] .week-label,
-html[lang="zh-CN"] .week-summary-day {
+html[lang="zh-Hant"] .search-dialog-footer,
+html[lang="zh-Hant"] .search-section-head,
+html[lang="zh-Hant"] .week-label,
+html[lang="zh-Hant"] .week-summary-day {
   letter-spacing: 0.02em;
 }
 
-html[lang="zh-CN"] .builder-intro > p {
+html[lang="zh-Hant"] .builder-intro > p {
   max-width: 500px;
   font-size: 13px;
   line-height: 1.85;
 }
 
-html[lang="zh-CN"] .builder-intro h2 {
+html[lang="zh-Hant"] .builder-intro h2 {
   max-width: 430px;
   font-size: 31px;
   line-height: 1.35;
@@ -5881,25 +5881,25 @@ html[lang="zh-CN"] .builder-intro h2 {
 }
 
 @media (max-width: 720px) {
-  html[lang="zh-CN"] .home-heading h1 .display-italic {
+  html[lang="zh-Hant"] .home-heading h1 .display-italic {
     display: block;
     margin-top: 2px;
   }
 
-  html[lang="zh-CN"] .builder-intro h2 {
+  html[lang="zh-Hant"] .builder-intro h2 {
     max-width: none;
     font-size: 30px;
   }
 }
 
 @media (max-width: 720px) {
-  html[lang="zh-CN"] .learn-heading h1 .display-italic,
-  html[lang="zh-CN"] .practice-heading h1 .display-italic {
+  html[lang="zh-Hant"] .learn-heading h1 .display-italic,
+  html[lang="zh-Hant"] .practice-heading h1 .display-italic {
     display: block;
     margin-top: 2px;
   }
 
-  html[lang="zh-CN"] .builder-intro h2 {
+  html[lang="zh-Hant"] .builder-intro h2 {
     max-width: none;
     font-size: 27px;
     line-height: 1.4;

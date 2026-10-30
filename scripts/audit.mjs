@@ -1,6 +1,7 @@
 import { chromium } from "playwright-core";
 
 const executablePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const base = process.env.BASE_URL || "http://127.0.0.1:4174";
 const browser = await chromium.launch({ executablePath, headless: true });
 const errors = [];
 
@@ -11,7 +12,7 @@ async function open(path, viewport, name) {
     if (msg.type() === "error") errors.push(`[${name}] console: ${msg.text()}`);
   });
   page.on("pageerror", (err) => errors.push(`[${name}] pageerror: ${err.message}`));
-  await page.goto(`http://127.0.0.1:4174/#${path}`, { waitUntil: "networkidle" });
+  await page.goto(`${base}/#${path}`, { waitUntil: "networkidle" });
   await page.waitForTimeout(400);
   const dims = await page.evaluate(() => ({
     scrollW: document.documentElement.scrollWidth,

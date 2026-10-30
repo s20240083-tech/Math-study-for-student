@@ -9,12 +9,13 @@ for (const question of QUESTIONS) {
 }
 console.log("✓ every checkpoint accepts its recorded answer");
 
+const base = process.env.BASE_URL || "http://127.0.0.1:4174";
 const browser = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", headless: true, args: ["--no-sandbox", "--disable-gpu"] });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
 const errors = [];
 page.on("pageerror", (e) => errors.push(e.message));
 page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
-await page.goto("http://127.0.0.1:4174/#/today", { waitUntil: "networkidle" });
+await page.goto(`${base}/#/today`, { waitUntil: "networkidle" });
 for (const lesson of LESSONS) {
   await page.evaluate((id) => { window.location.hash = `#/lesson/${id}`; }, lesson.id);
   await page.waitForFunction(

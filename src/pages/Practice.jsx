@@ -85,7 +85,7 @@ function buildSession(focus, length, progress, difficulty = "mixed") {
     const questions = [...own, ...nearby].slice(0, Math.min(length, levelQuestions.length));
     return {
       title: lesson.title,
-      subtitle: `${lesson.levelTitle} · 本阶段强化 · ${questions.length} 道不重复的题`,
+      subtitle: `${lesson.levelTitle} · 本階段強化 · ${questions.length} 道不重複的題`,
       focus,
       questions,
       source: "lesson",
@@ -119,11 +119,11 @@ function buildSession(focus, length, progress, difficulty = "mixed") {
     }
     const questions = pickQuestions(progress, pool, length);
     return {
-      title: `${strandLabel}练习`,
+      title: `${strandLabel}練習`,
       subtitle:
         difficulty === "mixed"
-          ? `从你学过的概念中抽取 · ${questions.length} 道不重复的题`
-          : `${difficultyInfo.label} · ${difficultyInfo.range}题库 · ${questions.length} 道题`,
+          ? `從你學過的概念中抽取 · ${questions.length} 道不重複的題`
+          : `${difficultyInfo.label} · ${difficultyInfo.range}題庫 · ${questions.length} 道題`,
       focus,
       questions,
       source: "strand",
@@ -136,11 +136,11 @@ function buildSession(focus, length, progress, difficulty = "mixed") {
   const pool = getDifficultyPool(difficulty, ceiling);
   const questions = pickQuestions(progress, pool, length);
   return {
-    title: difficulty === "mixed" ? "智能复习" : `${difficultyInfo.label}练习`,
+    title: difficulty === "mixed" ? "智能複習" : `${difficultyInfo.label}練習`,
     subtitle:
       difficulty === "mixed"
-        ? `优先挑选你最需要巩固的概念 · ${questions.length} 道不重复的题`
-        : `从${difficultyInfo.range}题库中抽取 · ${questions.length} 道不重复的题`,
+        ? `優先挑選你最需要鞏固的概念 · ${questions.length} 道不重複的題`
+        : `從${difficultyInfo.range}題庫中抽取 · ${questions.length} 道不重複的題`,
     focus: "smart",
     questions,
     source: "smart",
@@ -178,7 +178,7 @@ function SessionQuestion({
       <div className="session-card-head">
         <div className="session-question-meta">
           <span className="question-count">
-            第 {index + 1} 题 <span>/ {total}</span>
+            第 {index + 1} 題 <span>/ {total}</span>
           </span>
           <span
             className="strand-dot-label"
@@ -233,7 +233,7 @@ function SessionQuestion({
             }`}
             value={input}
             onChange={(event) => !checked && setInput(event.target.value)}
-            placeholder={question.placeholder || "输入答案"}
+            placeholder={question.placeholder || "輸入答案"}
             aria-label={question.prompt}
             disabled={checked}
             autoComplete="off"
@@ -256,10 +256,10 @@ function SessionQuestion({
             aria-expanded={showHint}
           >
             <Icon name="lightbulb" size={16} />
-            {showHint ? "收起提示" : "需要提示吗？"}
+            {showHint ? "收起提示" : "需要提示嗎？"}
           </button>
           <button className="button button-dark" onClick={onCheck} disabled={!canCheck}>
-            检查答案
+            檢查答案
             <Icon name="arrowRight" size={16} />
           </button>
         </div>
@@ -281,16 +281,16 @@ function SessionQuestion({
             <span className="feedback-icon">
               <Icon name={correct ? "check" : "lightbulb"} size={17} />
             </span>
-            <strong>{correct ? "完全正确。" : "还差一点。"}</strong>
+            <strong>{correct ? "完全正確。" : "還差一點。"}</strong>
             {!correct && (
               <span className="feedback-correct">
-                正确答案：<strong>{question.type === "choice" ? question.options[question.answer] : question.answer}</strong>
+                正確答案：<strong>{question.type === "choice" ? question.options[question.answer] : question.answer}</strong>
               </span>
             )}
           </div>
           <p>{question.explanation}</p>
           <button className="button button-dark session-next" onClick={onNext}>
-            {isLast ? "查看结果" : "下一题"}
+            {isLast ? "查看結果" : "下一題"}
             <Icon name="arrowRight" size={16} />
           </button>
         </div>
@@ -315,39 +315,39 @@ function SessionResults({ session, results, onAgain, onExit, navigate }) {
           ))}
           <ProgressRing value={accuracy} size={148} stroke={9}>
             <strong>{accuracy}%</strong>
-            <span>正确率</span>
+            <span>正確率</span>
           </ProgressRing>
         </div>
         <div className="results-copy">
           <span className="eyebrow with-dot">
             <span className="live-dot" />
-            练习完成
+            練習完成
           </span>
           <h1>
-            {total} 题中，<span className="display-italic">答对 {correct} 题。</span>
+            {total} 題中，<span className="display-italic">答對 {correct} 題。</span>
           </h1>
           <p>{getScoreMessage(correct, total)}</p>
           <div className="results-stats">
             <div>
               <strong>{correct}</strong>
-              <span>答对</span>
+              <span>答對</span>
             </div>
             <div>
               <strong>{total - correct}</strong>
-              <span>待复习</span>
+              <span>待複習</span>
             </div>
             <div>
               <strong>+{xp}</strong>
-              <span>获得 XP</span>
+              <span>獲得 XP</span>
             </div>
           </div>
           <div className="results-actions">
             <button className="button button-coral" onClick={onAgain}>
               <Icon name="reset" size={16} />
-              再练一次
+              再練一次
             </button>
             <button className="button button-quiet" onClick={onExit}>
-              返回练习
+              返回練習
             </button>
           </div>
         </div>
@@ -358,7 +358,7 @@ function SessionResults({ session, results, onAgain, onExit, navigate }) {
           <div className="section-heading compact">
             <div>
               <span className="eyebrow">值得回看</span>
-              <h2>{missed.length ? "这些题值得再看一遍。" : "没有漏网之鱼。"}</h2>
+              <h2>{missed.length ? "這些題值得再看一遍。" : "沒有漏網之魚。"}</h2>
             </div>
             <span className="section-note">{session.title}</span>
           </div>
@@ -366,9 +366,9 @@ function SessionResults({ session, results, onAgain, onExit, navigate }) {
             <div className="perfect-note">
               <span className="finish-icon"><Icon name="spark" size={20} /></span>
               <div>
-                <h3>全部答对。</h3>
+                <h3>全部答對。</h3>
                 <p>
-                  可以试试更长的练习，或者进入下一个概念。过几天再回来复习，会记得更牢。
+                  可以試試更長的練習，或者進入下一個概念。過幾天再回來複習，會記得更牢。
                 </p>
               </div>
             </div>
@@ -384,7 +384,7 @@ function SessionResults({ session, results, onAgain, onExit, navigate }) {
                       className="text-link with-arrow"
                       onClick={() => navigate(`/lesson/${result.question.lessonId}`)}
                     >
-                      复习《{result.question.lessonTitle}》
+                      複習《{result.question.lessonTitle}》
                       <Icon name="arrowRight" size={14} />
                     </button>
                   </div>
@@ -395,13 +395,13 @@ function SessionResults({ session, results, onAgain, onExit, navigate }) {
         </section>
 
         <aside className="results-aside">
-          <span className="eyebrow">接下来</span>
-          <h3>保持短而频的节奏。</h3>
+          <span className="eyebrow">接下來</span>
+          <h3>保持短而頻的節奏。</h3>
           <p>
-            明天练十分钟，比下周突击两小时更能帮助记忆。
+            明天練十分鐘，比下週突擊兩小時更能幫助記憶。
           </p>
           <button className="button button-dark button-full" onClick={onExit}>
-            规划下一次练习
+            規劃下一次練習
             <Icon name="arrowRight" size={16} />
           </button>
           <button className="text-link" onClick={() => navigate("/today")}>
@@ -527,7 +527,7 @@ export function PracticePage({
         <div className="session-topbar">
           <button className="back-link" onClick={exitSession}>
             <Icon name="close" size={17} />
-            退出练习
+            退出練習
           </button>
           <div className="session-progress-wrap">
             <div className="session-progress-label">
@@ -546,7 +546,7 @@ export function PracticePage({
           </div>
           <div className="session-score">
             <strong>{results.filter((result) => result.correct).length}</strong>
-            <span>答对</span>
+            <span>答對</span>
           </div>
         </div>
 
@@ -582,7 +582,7 @@ export function PracticePage({
           <div className="session-footer-note">
             <Icon name="lightbulb" size={16} />
             <span>
-              错题也是有用的信息，每次作答都会更新掌握度。
+              錯題也是有用的資訊，每次作答都會更新掌握度。
             </span>
           </div>
         </div>
@@ -596,27 +596,27 @@ export function PracticePage({
         <div>
           <p className="eyebrow with-dot">
             <span className="live-dot" />
-            练习室
+            練習室
           </p>
           <h1>
-            练习，是<span className="display-italic">豁然开朗的地方。</span>
+            練習，是<span className="display-italic">豁然開朗的地方。</span>
           </h1>
           <p className="page-sub">
-            短时练习、即时解析，题目会优先选择你最需要巩固的概念。
+            短時練習、即時解析，題目會優先選擇你最需要鞏固的概念。
           </p>
         </div>
         <div className="practice-profile">
           <div>
             <strong>{overall.attempts}</strong>
-            <span>已答题数</span>
+            <span>已答題數</span>
           </div>
           <div>
             <strong>{overall.attempts ? `${overall.accuracy}%` : "—"}</strong>
-            <span>当前正确率</span>
+            <span>當前正確率</span>
           </div>
           <div>
             <strong>{overall.lessonsComplete}</strong>
-            <span>已完成课程</span>
+            <span>已完成課程</span>
           </div>
         </div>
       </section>
@@ -638,37 +638,37 @@ export function PracticePage({
               <circle cx="220" cy="166" r="3" fill="#E9C767" />
             </svg>
           </div>
-          <span className="eyebrow eyebrow-light">组合一次练习</span>
-          <h2>一次练习，一个目标。</h2>
+          <span className="eyebrow eyebrow-light">組合一次練習</span>
+          <h2>一次練習，一個目標。</h2>
           <p>
-            选一个主题，或交给智能复习。每题都有完整解析，不必猜错在哪里。
+            選一個主題，或交給智能複習。每題都有完整解析，不必猜錯在哪裡。
           </p>
           <div className="builder-stat">
             <Icon name="target" size={17} />
             <span>
               {weakest.length > 0
-                ? `当前薄弱点：${weakest[0].lesson.title}`
-                : "你的掌握图谱还在形成中。"}
+                ? `當前薄弱點：${weakest[0].lesson.title}`
+                : "你的掌握圖譜還在形成中。"}
             </span>
           </div>
         </div>
 
         <div className="builder-form">
           <div className="form-block">
-            <label htmlFor="practice-focus">想练什么？</label>
+            <label htmlFor="practice-focus">想練什麼？</label>
             <div className="select-wrap">
               <select
                 id="practice-focus"
                 value={focus}
                 onChange={(event) => setFocus(event.target.value)}
               >
-                <option value="smart">智能复习 — 帮我选择</option>
+                <option value="smart">智能複習 — 幫我選擇</option>
                 <option value={`lesson:${continueLesson.id}`}>
-                  下一课 — {continueLesson.title}
+                  下一課 — {continueLesson.title}
                 </option>
                 {strands.map((strand) => (
                   <option key={strand.strand} value={`strand:${strand.strand}`}>
-                    {strand.label} — {pluralize(strand.availableLessons, "节课")}
+                    {strand.label} — {pluralize(strand.availableLessons, "節課")}
                   </option>
                 ))}
               </select>
@@ -677,10 +677,10 @@ export function PracticePage({
           </div>
 
           <div className="form-block">
-            <span className="form-label">难度</span>
-            <div className="difficulty-grid" role="group" aria-label="难度">
+            <span className="form-label">難度</span>
+            <div className="difficulty-grid" role="group" aria-label="難度">
               {[
-                ["mixed", "混合", "全部难度"],
+                ["mixed", "混合", "全部難度"],
                 ...Object.entries(DIFFICULTIES).map(([key, item]) => [
                   key,
                   item.label,
@@ -700,14 +700,14 @@ export function PracticePage({
             </div>
             <p className="form-note">
               {difficulty === "mixed"
-                ? `本阶段题库 ${QUESTIONS.filter((question) => question.levelId === continueLesson.levelId).length} 道，20 题会全部覆盖。`
-                : `当前难度共 ${QUESTIONS.filter((question) => question.difficulty === difficulty).length} 道题，每次抽取不重复的题。`}
+                ? `本階段題庫 ${QUESTIONS.filter((question) => question.levelId === continueLesson.levelId).length} 道，20 題會全部覆蓋。`
+                : `當前難度共 ${QUESTIONS.filter((question) => question.difficulty === difficulty).length} 道題，每次抽取不重複的題。`}
             </p>
           </div>
 
           <div className="form-block">
-            <span className="form-label">练习长度</span>
-            <div className="segmented" role="group" aria-label="练习长度">
+            <span className="form-label">練習長度</span>
+            <div className="segmented" role="group" aria-label="練習長度">
               {[5, 10, 20].map((value) => (
                 <button
                   key={value}
@@ -716,18 +716,18 @@ export function PracticePage({
                   aria-pressed={length === value}
                 >
                   <strong>{value}</strong>
-                  <span>道题</span>
+                  <span>道題</span>
                 </button>
               ))}
             </div>
           </div>
 
           <button className="button button-coral button-full builder-start" onClick={() => startSession()}>
-            开始练习
+            開始練習
             <Icon name="arrowRight" size={17} />
           </button>
           <p className="builder-footnote">
-            约 {length === 5 ? "4" : length === 10 ? "8" : "15"} 分钟 · 进度自动保存
+            約 {length === 5 ? "4" : length === 10 ? "8" : "15"} 分鐘 · 進度自動保存
           </p>
         </div>
       </section>
@@ -736,13 +736,13 @@ export function PracticePage({
         <section className="practice-main">
           <div className="section-heading compact">
             <div>
-              <span className="eyebrow">值得复习</span>
-              <h2>{weakest.length ? "在这里多花一点心思，会很有帮助。" : "你的薄弱点会显示在这里。"}</h2>
+              <span className="eyebrow">值得複習</span>
+              <h2>{weakest.length ? "在這裡多花一點心思，會很有幫助。" : "你的薄弱點會顯示在這裡。"}</h2>
             </div>
             <span className="section-note">
               {overall.attempts
-                ? `整体正确率 ${overall.accuracy}%`
-                : "先答几道题开始"}
+                ? `整體正確率 ${overall.accuracy}%`
+                : "先答幾道題開始"}
             </span>
           </div>
 
@@ -752,13 +752,13 @@ export function PracticePage({
                 <Icon name="compass" size={24} />
               </span>
               <div>
-                <h3>还没有薄弱点，只有尚未探索的概念。</h3>
+                <h3>還沒有薄弱點，只有尚未探索的概念。</h3>
                 <p>
-                  从智能复习开始。答几道题之后，这里会显示需要再回访的概念。
+                  從智能複習開始。答幾道題之後，這裡會顯示需要再回訪的概念。
                 </p>
               </div>
               <button className="button button-dark button-small" onClick={() => startSession("smart", 5, "mixed")}>
-                试做五道题
+                試做五道題
               </button>
             </div>
           ) : (
@@ -786,7 +786,7 @@ export function PracticePage({
                     </span>
                   </span>
                   <span className="weak-action">
-                    练习
+                    練習
                     <Icon name="arrowRight" size={16} />
                   </span>
                 </button>
@@ -796,8 +796,8 @@ export function PracticePage({
 
           <div className="section-heading compact strand-heading">
             <div>
-              <span className="eyebrow">按主题练习</span>
-              <h2>选择一个主题。</h2>
+              <span className="eyebrow">按主題練習</span>
+              <h2>選擇一個主題。</h2>
             </div>
           </div>
           <div className="practice-strand-grid">
@@ -814,7 +814,7 @@ export function PracticePage({
                 <span className="practice-strand-copy">
                   <strong>{strand.label}</strong>
                   <span>
-                    {pluralize(strand.availableLessons, "节课")}
+                    {pluralize(strand.availableLessons, "節課")}
                     {strand.attempts > 0 && ` · 掌握度 ${strand.mastery}%`}
                   </span>
                 </span>
@@ -826,27 +826,27 @@ export function PracticePage({
 
         <aside className="practice-aside">
           <div className="how-card">
-            <span className="eyebrow">练习方法</span>
+            <span className="eyebrow">練習方法</span>
             <ol className="how-list">
               <li>
                 <span>01</span>
                 <div>
-                  <strong>不用等准备好，先作答。</strong>
-                  <p>努力回忆的过程，正是在建立记忆。</p>
+                  <strong>不用等準備好，先作答。</strong>
+                  <p>努力回憶的過程，正是在建立記憶。</p>
                 </div>
               </li>
               <li>
                 <span>02</span>
                 <div>
-                  <strong>每道题的解析都要读。</strong>
-                  <p>即使答对，理由也可能并不牢固。</p>
+                  <strong>每道題的解析都要讀。</strong>
+                  <p>即使答對，理由也可能並不牢固。</p>
                 </div>
               </li>
               <li>
                 <span>03</span>
                 <div>
-                  <strong>明天再回来。</strong>
-                  <p>短而分散的练习，胜过长时间突击。</p>
+                  <strong>明天再回來。</strong>
+                  <p>短而分散的練習，勝過長時間突擊。</p>
                 </div>
               </li>
             </ol>
@@ -856,8 +856,8 @@ export function PracticePage({
               <span className="eyebrow">今天</span>
               <strong>
                 {today.questions === 0
-                  ? "几分钟就够了"
-                  : `已答 ${today.questions} 道题`}
+                  ? "幾分鐘就夠了"
+                  : `已答 ${today.questions} 道題`}
               </strong>
             </div>
             <Icon name="flame" size={22} />

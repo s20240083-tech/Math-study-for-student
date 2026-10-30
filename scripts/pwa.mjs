@@ -1,12 +1,13 @@
 import { chromium } from "playwright-core";
 const executablePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const base = process.env.BASE_URL || "http://127.0.0.1:4174";
 const browser = await chromium.launch({ executablePath, headless: true });
 const context = await browser.newContext({ viewport: { width: 1200, height: 900 } });
 const page = await context.newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(e.message));
 page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
-await page.goto("http://127.0.0.1:4174/#/today", { waitUntil: "networkidle" });
+await page.goto(`${base}/#/today`, { waitUntil: "networkidle" });
 await page.waitForTimeout(1600);
 const pwa = await page.evaluate(async () => {
   const reg = await navigator.serviceWorker.getRegistration();

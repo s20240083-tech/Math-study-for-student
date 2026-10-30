@@ -1,108 +1,127 @@
 # Summa
 
-**一条完整的学校数学路径——从数数到微积分。**
+**由數數到微積分的完整數學學習路徑。**
 
-**在线使用：** https://s20240083-tech.github.io/Math-study-for-student/
+**線上使用：** https://s20240083-tech.github.io/Math-study-for-student/<br />
+**作者：** 3D 廖嘉兒
 
-Summa 是一个面向约 6–18 岁学习者的独立数学学习应用。它把循序渐进的课程、低压力的练习、完整解析和保存在本机的学习进度放在一起。没有账号，没有广告，也没有排行榜。
+![Summa 產品網站](./docs/site-zh.png)
 
-![Summa 首页](./docs/preview.png)
+Summa 是一個面向約 6–18 歲學習者的獨立數學學習專題。它把六年的小學數學、六年的中學數學，整理成一條安靜而清楚的學習路徑：54 節引導課程、120 道練習題、九個數學主題，以及保存在本機的學習進度。
 
-更多界面：[课程页](./docs/lesson.png) · [练习室](./docs/practice.png) · [20 题练习](./docs/session.png) · [进度页](./docs/progress.png) · [移动端](./docs/mobile.png)
+產品網站提供**繁體中文 / English** 兩個語言版本；互動課程本身以**繁體中文**呈現。沒有帳號、廣告、排行榜或訂閱。
 
-## 里面有什么
+更多介面：[課程頁](./docs/lesson.png) · [練習室](./docs/practice.png) · [20 題練習](./docs/session.png) · [進度頁](./docs/progress.png) · [手機版](./docs/mobile.png) · [English site](./docs/site-en.png)
 
-- **6 个阶段、54 节引导课程**，从数数与数位一路走到极限、导数和积分。
-- **120 道检查点题目**：每阶段 20 道，配有提示、完整解析和即时反馈。
-- **练习室**：5、10 或 20 道题，可选简单、普通、困难或混合；同一轮不重复，20 道混合练习会覆盖本阶段完整题库。
-- **掌握度地图**：覆盖数与运算、代数、图形与几何、测量、数据与概率、比与比例、函数、微积分和进阶专题。
-- **本机进度**保存在 `localStorage`：完成课程、XP、题目正确率、每日活动、连续学习天数和里程碑。
-- **搜索**（`⌘K` / `Ctrl+K`）、响应式移动端导航，以及首次访问后可离线使用的 PWA。
+## 網站包含什麼
 
-## 运行
+- **完整的產品介紹**：學習理念、產品導覽、練習系統、課程地圖、設計原則與作者介紹。
+- **繁體中文 / English 切換**：語言選擇會保存在瀏覽器中，並同步更新頁面語言與標題。
+- **互動課程入口**：網站上的所有「開始學習」按鈕都會進入原本可用的數學應用程式。
+- **作者資訊**：3D 廖嘉兒，包括專題背景、課程與技術資料。
+- **社會分享與搜尋資料**：Open Graph、Twitter Card、JSON-LD、robots.txt、sitemap 與分享圖片。
+- **保留原有功能**：今日、學習、課時、練習、進度、搜尋、20 題難度練習、PWA 離線使用全部保留。
 
-生产构建已经放在 `dist/` 中。
+## 數學應用
+
+- **6 個階段、54 節引導課程**，從數數與數位一路走到極限、導數和積分。
+- **120 道檢查點題目**：每階段 20 道，配有提示、完整解析與即時回饋。
+- **練習室**：5、10 或 20 道題，可選簡單、普通、困難或混合；同一輪不重複，20 道混合練習會覆蓋本階段完整題庫。
+- **掌握度地圖**：覆蓋數與運算、代數、圖形與幾何、測量、數據與概率、比與比例、函數、微積分和進階專題。
+- **本機進度**保存在 `localStorage`：完成課程、XP、題目正確率、每日活動、連續學習天數與里程碑。
+- **搜尋**（`⌘K` / `Ctrl+K`）、響應式手機導航，以及首次載入後可離線使用的 PWA。
+
+## 難度與題庫
+
+- **簡單**：1–2 階段，40 道基礎題。
+- **普通**：3–4 階段，40 道核心題。
+- **困難**：5–6 階段，40 道挑戰題。
+- 每階段各有 20 道題；20 道模式會從當前階段完整抽取一次，題目在本次練習中不重複。
+
+## 課程地圖
+
+| 階段 | 年級 | 重點 |
+| --- | --- | --- |
+| 01 · 第一步 | 1–2 | 數數、數位、早期運算、圖形、簡單分數 |
+| 02 · 搭積木 | 3–4 | 乘除法、分數、面積、角、統計圖 |
+| 03 · 信心漸長 | 5–6 | 小數、分數運算、比、百分數、體積、平均數 |
+| 04 · 橋樑 | 7–8 | 整數、方程、比例、勾股定理、概率、統計 |
+| 05 · 代數與聯繫 | 9–10 | 函數、方程組、二次方程、三角、圓、數據模型 |
+| 06 · 進階數學 | 11–12 | 指數、數列、複數、微積分、概率分佈、向量與矩陣 |
+
+每節課都遵循同一學習閉環：簡短講解、核心概念、例題、2–3 道檢查點，以及進入專項練習的連結。順序是建議，不是鎖——學習者可以隨時跳到感興趣的概念。
+
+## 執行
+
+生產建置已放在 `dist/` 中。
 
 ```bash
-cd summa
+cd Math-study-for-student
 ./start.sh
 ```
 
-或者手动启动静态服务器：
+或手動啟動靜態伺服器：
 
 ```bash
 python3 -m http.server 4174 --bind 127.0.0.1 --directory dist
-# 打开 http://127.0.0.1:4174
+# 開啟 http://127.0.0.1:4174
 ```
 
-修改源码时：
+修改原始碼時：
 
 ```bash
 pnpm install
-pnpm dev        # 本地开发服务器
+pnpm dev        # 本地開發伺服器
 pnpm build      # 重新生成 dist/
-pnpm preview    # 预览生产构建
+pnpm preview    # 預覽生產建置
 ```
 
-建议使用 Node 20+ 与 pnpm。应用没有运行时后端。
+建議使用 Node 20+ 與 pnpm。應用沒有執行時後端。
 
-## 自动部署
+## 自動部署
 
-每次推送到 `main` 分支，GitHub Actions 会自动安装依赖、构建并部署到 GitHub Pages。工作流文件位于 [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)。也可以在仓库的 **Actions → Deploy to GitHub Pages → Run workflow** 手动触发。
+每次合併或推送到 `main`，GitHub Actions 會自動安裝依賴、建置並部署到 GitHub Pages。工作流程位於 [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)。也可以在 **Actions → Deploy to GitHub Pages → Run workflow** 手動觸發。
 
-## 难度与题库
-
-- **简单**：1–2 阶段，40 道基础题。
-- **普通**：3–4 阶段，40 道核心题。
-- **困难**：5–6 阶段，40 道挑战题。
-- 每阶段各有 20 道题；20 道模式会从当前阶段完整抽取一次，题目在本次练习中不重复。
-
-## 课程地图
-
-| 阶段 | 年级 | 重点 |
-| --- | --- | --- |
-| 01 · 第一步 | 1–2 | 数数、数位、早期运算、图形、简单分数 |
-| 02 · 搭积木 | 3–4 | 乘除法、分数、面积、角、统计图 |
-| 03 · 信心渐长 | 5–6 | 小数、分数运算、比、百分数、体积、平均数 |
-| 04 · 桥梁 | 7–8 | 整数、方程、比例、勾股定理、概率、统计 |
-| 05 · 代数与联系 | 9–10 | 函数、方程组、二次方程、三角、圆、数据模型 |
-| 06 · 进阶数学 | 11–12 | 指数、数列、复数、微积分、概率分布、向量与矩阵 |
-
-每节课都遵循同一学习闭环：简短讲解、核心概念、例题、两道检查点，以及进入专项练习的链接。顺序是建议，不是锁——学习者可以随时跳到感兴趣的概念。
-
-## 项目结构
+## 專案結構
 
 ```text
 src/
-  data/zh/           简体中文课程内容与题库，每个阶段一个文件
-  data/levels/       英文原版课程内容（保留作参考）
-  data/curriculum.js 展平课程、主题、搜索与辅助函数
-  lib/progress.js   本机进度模型与掌握度计算
-  components/       图标、应用外壳、导航、搜索弹窗
-  pages/            今日、学习、课时、练习、进度
-  styles.css        完整设计系统
-public/             PWA 图标、manifest、离线 Service Worker
+  data/zh/           繁體中文課程內容與題庫，每個階段一個檔案
+  data/levels/       英文原版課程內容（保留作參考）
+  data/siteCopy.js   產品網站的中英文文案
+  data/curriculum.js 展平課程、主題、難度、搜尋與輔助函式
+  lib/progress.js    本機進度模型與掌握度計算
+  components/        圖示、應用外殼、導航、搜尋彈窗
+  pages/             今日、學習、課時、練習、進度、產品網站
+  pages/Marketing.jsx 繁體中文 / English 商業網站
+  styles.css         應用設計系統
+  styles/marketing.css 產品網站設計系統
+public/
+  marketing/         網站產品截圖
+  og-image.png       社群分享圖片
+  robots.txt, sitemap.xml
 ```
 
-进度完全保存在本机，可以直接查看。重置入口在「进度」页面底部。
+進度完全保存在本機，可以直接查看。重置入口在「進度」頁面底部。
 
-## 测试
+## 測試
 
-`scripts/` 文件夹包含开发时使用的 Playwright 冒烟测试。安装开发依赖，并在 4174 端口提供构建产物后运行：
+`scripts/` 資料夾包含開發時使用的 Playwright 冒煙測試。安裝開發依賴，並在 4174 埠提供建置產物後執行：
 
 ```bash
 pnpm install
 pnpm serve
-# 在另一个终端
-node scripts/validate-content.mjs   # 课程结构校验，无需浏览器
-node scripts/audit.mjs              # 桌面与移动端布局检查
-node scripts/flow.mjs               # 课程、练习、搜索与导航流程
-node scripts/test-all-lessons.mjs   # 54 节课全部可以正常渲染
-node scripts/pwa.mjs                # manifest、缓存与离线外壳
+# 在另一個終端
+node scripts/validate-content.mjs   # 課程結構校驗，無需瀏覽器
+node scripts/audit.mjs              # 桌面與手機版佈局檢查
+node scripts/flow.mjs               # 課程、練習、搜尋與導航流程
+node scripts/site.mjs               # 中英文網站、切換與應用入口
+node scripts/test-all-lessons.mjs   # 54 節課全部可以正常呈現
+node scripts/pwa.mjs                # manifest、快取與離線外殼
 ```
 
-浏览器测试默认使用 macOS 上标准路径的 Google Chrome。截图写入 `shots/`。
+瀏覽器測試預設使用 macOS 上標準路徑的 Google Chrome。截圖寫入 `shots/`。
 
-## 字体
+## 字體
 
-西文显示字体为 **Fraunces**（Undercase Type），正文为 **DM Sans**（Colophon Foundry），均在 SIL Open Font License 下使用（见 [`licenses/`](./licenses)），并随应用本地打包。中文使用系统的宋体／苹方字体回退，因此在离线时也能保持清晰、稳定的排版。
+西文顯示字體為 **Fraunces**（Undercase Type），正文為 **DM Sans**（Colophon Foundry），均在 SIL Open Font License 下使用（見 [`licenses/`](./licenses)），並隨應用本地打包。中文使用系統的宋體／蘋方字體回退，因此在離線時也能保持清晰、穩定的排版。

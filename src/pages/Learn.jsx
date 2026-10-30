@@ -73,33 +73,33 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
         <div>
           <p className="eyebrow with-dot">
             <span className="live-dot" />
-            课程地图
+            課程地圖
           </p>
           <h1>
-            每个概念，<span className="display-italic">都在恰当的顺序里。</span>
+            每個概念，<span className="display-italic">都在恰當的順序裡。</span>
           </h1>
           <p className="page-sub">
-            六个相互衔接的阶段，从数数一路走到微积分，
+            六個相互銜接的階段，從數數一路走到微積分，
             不留缺口，也不靠猜。
           </p>
         </div>
         <div className="learn-overview">
           <div>
             <strong>{TOTAL_LESSONS}</strong>
-            <span>节课</span>
+            <span>節課</span>
           </div>
           <div>
             <strong>{TOTAL_QUESTIONS}</strong>
-            <span>个检查点</span>
+            <span>個檢查點</span>
           </div>
           <div>
             <strong>{Math.round(TOTAL_MINUTES / 60)}</strong>
-            <span>小时阅读</span>
+            <span>小時閱讀</span>
           </div>
         </div>
       </section>
 
-      <div className="stage-tabs" role="tablist" aria-label="学习阶段">
+      <div className="stage-tabs" role="tablist" aria-label="學習階段">
         {STAGES.map((item) => {
           const stageLevelList = CURRICULUM.filter((level) => level.stage === item.id);
           const first = stageLevelList[0];
@@ -120,7 +120,7 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
           );
         })}
         <div className="stage-tab-note">
-          本阶段已完成 {completedInStage} / {lessonsInStage} 节课
+          本階段已完成 {completedInStage} / {lessonsInStage} 節課
         </div>
       </div>
 
@@ -141,7 +141,7 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
               </span>
               <span className="level-pick-copy">
                 <span className="level-pick-meta">
-                  {item.grades} · {item.lessons.length} 节课
+                  {item.grades} · {item.lessons.length} 節課
                 </span>
                 <strong>{item.title}</strong>
                 <span className="level-pick-line">
@@ -176,9 +176,9 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
               </ProgressRing>
               <div>
                 <strong>
-                  已完成 {levelProgress.completed} / {levelProgress.total} 节
+                  已完成 {levelProgress.completed} / {levelProgress.total} 節
                 </strong>
-                <span>约 {formatMinutes(levelMinutes)} 的学习</span>
+                <span>約 {formatMinutes(levelMinutes)} 的學習</span>
               </div>
             </div>
             <button
@@ -186,17 +186,17 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
               onClick={() => navigate(`/lesson/${nextLessonInLevel.id}`)}
             >
               {levelProgress.completed === 0
-                ? "开始本阶段"
+                ? "開始本階段"
                 : levelProgress.completed === levelProgress.total
-                  ? "复习本阶段"
-                  : "继续本阶段"}
+                  ? "複習本階段"
+                  : "繼續本階段"}
               <Icon name="arrowRight" size={17} />
             </button>
           </div>
         </div>
 
         <div className="level-toolbar">
-          <div className="filter-chips" aria-label="按主题筛选课程">
+          <div className="filter-chips" aria-label="按主題篩選課程">
             {availableStrands.map((strandKey) => {
               const count =
                 strandKey === "All"
@@ -210,14 +210,14 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
                   className={`filter-chip ${strandFilter === strandKey ? "is-active" : ""}`}
                   onClick={() => setStrandFilter(strandKey)}
                 >
-                  {strandKey === "All" ? "全部主题" : STRANDS[strandKey]?.label || strandKey}
+                  {strandKey === "All" ? "全部主題" : STRANDS[strandKey]?.label || strandKey}
                   <span>{count}</span>
                 </button>
               );
             })}
           </div>
           <span className="toolbar-count">
-            {pluralize(visibleLessons.length, "节课")}
+            {pluralize(visibleLessons.length, "節課")}
           </span>
         </div>
 
@@ -257,7 +257,7 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
                       掌握度 {mastery}%
                     </span>
                   )}
-                  <span className="lesson-minutes">{lesson.minutes} 分钟</span>
+                  <span className="lesson-minutes">{lesson.minutes} 分鐘</span>
                   <span className="lesson-go">
                     <Icon name="arrowRight" size={17} />
                   </span>
@@ -270,10 +270,10 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
         {visibleLessons.length === 0 && (
           <div className="empty-state">
             <span className="empty-mark">∅</span>
-            <h3>这个主题下还没有课程。</h3>
-            <p>换个筛选，继续探索这一阶段。</p>
+            <h3>這個主題下還沒有課程。</h3>
+            <p>換個篩選，繼續探索這一階段。</p>
             <button className="button button-quiet" onClick={() => setStrandFilter("All")}>
-              显示全部课程
+              顯示全部課程
             </button>
           </div>
         )}
@@ -281,14 +281,14 @@ export function LearnPage({ progress, levelId, strandParam, navigate }) {
 
       <section className="learn-next">
         <div>
-          <span className="eyebrow">关于顺序</span>
-          <h3>不必从头开始。</h3>
+          <span className="eyebrow">關於順序</span>
+          <h3>不必從頭開始。</h3>
           <p>
-            路径有顺序，但没有上锁。如果你已经会某个主题，可以先练习检验，再继续前进。如果一节课感觉吃力，前一节课通常藏着缺少的那块拼图。
+            路徑有順序，但沒有上鎖。如果你已經會某個主題，可以先練習檢驗，再繼續前進。如果一節課感覺吃力，前一節課通常藏著缺少的那塊拼圖。
           </p>
         </div>
         <button className="button button-quiet" onClick={() => navigate("/practice")}>
-          在练习中找到你的位置
+          在練習中找到你的位置
           <Icon name="arrowRight" size={16} />
         </button>
       </section>

@@ -11,7 +11,7 @@ export function MarketingPage({ lang, onLangChange, navigate }) {
   useEffect(() => {
     document.documentElement.lang = copy.htmlLang;
     return () => {
-      document.documentElement.lang = "zh-CN";
+      document.documentElement.lang = "zh-Hant";
     };
   }, [copy.htmlLang]);
 
@@ -128,7 +128,7 @@ export function MarketingPage({ lang, onLangChange, navigate }) {
                 <span />
                 <em>summa.</em>
               </div>
-              <img src="./marketing/hero.png" alt={copy.hero.imageAlt} />
+              <img src="./marketing/hero.png" alt={copy.hero.imageAlt} fetchPriority="high" />
             </div>
             <div className="site-float-card">
               <span className="site-float-label">{copy.hero.floatingLabel}</span>

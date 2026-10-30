@@ -57,9 +57,9 @@ function useHashRoute() {
 
 const PAGE_TITLES = {
   today: "今日",
-  learn: "课程",
-  practice: "练习",
-  progress: "进度",
+  learn: "課程",
+  practice: "練習",
+  progress: "進度",
 };
 
 export default function App() {
@@ -116,11 +116,11 @@ export default function App() {
           : "Summa — A complete mathematics path";
       return;
     }
-    document.documentElement.lang = "zh-CN";
+    document.documentElement.lang = "zh-Hant";
     let title = PAGE_TITLES[page] || "今日";
     if (page === "lesson") {
       const lesson = getLessonById(route.segments[1]);
-      title = lesson ? lesson.title : "课时";
+      title = lesson ? lesson.title : "課時";
     }
     document.title = `${title} · Summa`;
   }, [route.raw, route.page, route.segments, siteLang]);
@@ -208,7 +208,7 @@ export default function App() {
           main?.scrollIntoView({ block: "start" });
         }}
       >
-        跳至主要内容
+        跳至主要內容
       </a>
       <Sidebar page={navPage} progress={progress} navigate={navigate} />
       <div className="app-main">
@@ -224,10 +224,10 @@ export default function App() {
         <footer className="global-footer">
           <span className="global-footer-brand">summa.</span>
           <button className="global-footer-about" onClick={() => navigate("/home")}>
-            产品介绍
+            產品介紹
           </button>
           <span className="global-footer-author">3D 廖嘉兒</span>
-          <span className="global-footer-meta">{TOTAL_LESSONS} 节课 · 6 个阶段 · 6–18 岁</span>
+          <span className="global-footer-meta">{TOTAL_LESSONS} 節課 · 6 個階段 · 6–18 歲</span>
         </footer>
       </div>
       <MobileNav page={navPage} navigate={navigate} />
